@@ -4,7 +4,7 @@ namespace CSC470_P3
 {
     public class AppUser
     {
-        public int UserName;
+        public string UserName;
         public string Password;
         public string FirstName;
         public string LastName;
