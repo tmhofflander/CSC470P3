@@ -88,5 +88,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSC470-P3\CSC470-P3.csproj">
+      <Project>{68b29d84-2402-4369-9e8c-b188ce1f431f}</Project>
+      <Name>CSC470-P3</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

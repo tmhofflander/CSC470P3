@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CSC470_P3;
 
 namespace CSC470_P4
 {
@@ -19,7 +20,25 @@ namespace CSC470_P4
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            AppUser appUser = new AppUser();
             CenterToScreen();
+            DialogResult result = DialogResult.OK;
+            if (!appUser.IsAuthenticated && result == DialogResult.OK)
+            {
+                FormLogin formLogin = new FormLogin();
+                result = formLogin.ShowDialog();
+            }
+
+            
+
+            if(result != DialogResult.OK)
+            {
+                Close();
+            }
+            else
+            {
+                this.Text = "Main - No Project Selected";
+            }
         }
     }
 }
