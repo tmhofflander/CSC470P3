@@ -13,6 +13,10 @@ namespace CSC470_P4
 {
     public partial class FormLogin : Form
     {
+
+        FakeAppUserRepository FAuserRepo = new FakeAppUserRepository();
+        public AppUser appUser = new AppUser();
+
         public FormLogin()
         {
             InitializeComponent();
@@ -23,19 +27,18 @@ namespace CSC470_P4
             string _password = txtPassword.Text;
             string _username = txtUsername.Text;
 
-            FakeAppUserRepository FAuserRepo = new FakeAppUserRepository();
+           
 
             if(FAuserRepo.Login(_username, _password))
             {
                 FAuserRepo.SetAuthentication(_username, true);
-                FAuserRepo.GetByUserName(_username);
-
+                this.appUser = FAuserRepo.GetByUserName(_username);
+                this.DialogResult = DialogResult.OK;
                 Close();
             }
             else
             {
                 MessageBox.Show("Incorrect UserName or Password.", "Attention");
-                DialogResult = DialogResult.No;
             }
 
         }

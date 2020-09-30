@@ -13,6 +13,8 @@ namespace CSC470_P4
 {
     public partial class FormMain : Form
     {
+        AppUser appUser = new AppUser();
+
         public FormMain()
         {
             InitializeComponent();
@@ -20,16 +22,18 @@ namespace CSC470_P4
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            AppUser appUser = new AppUser();
+
+
             CenterToScreen();
             DialogResult result = DialogResult.OK;
             if (!appUser.IsAuthenticated && result == DialogResult.OK)
             {
                 FormLogin formLogin = new FormLogin();
-                result = formLogin.ShowDialog();
-            }
 
-            
+                result = formLogin.ShowDialog();
+                appUser = formLogin.appUser;
+                Console.WriteLine(appUser.IsAuthenticated.ToString());
+            }
 
             if(result != DialogResult.OK)
             {
