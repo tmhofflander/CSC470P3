@@ -43,5 +43,9 @@ namespace CSC470_P4
 
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
