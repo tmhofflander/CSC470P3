@@ -16,10 +16,6 @@ namespace CSC470_P4
         public FormMain()
         {
             InitializeComponent();
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
             AppUser appUser = new AppUser();
             CenterToScreen();
             DialogResult result = DialogResult.OK;
@@ -29,9 +25,9 @@ namespace CSC470_P4
                 result = formLogin.ShowDialog();
             }
 
-            
 
-            if(result != DialogResult.OK)
+
+            if (result != DialogResult.OK)
             {
                 Close();
             }
@@ -39,6 +35,11 @@ namespace CSC470_P4
             {
                 this.Text = "Main - No Project Selected";
             }
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

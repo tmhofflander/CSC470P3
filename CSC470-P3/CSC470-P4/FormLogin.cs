@@ -40,5 +40,29 @@ namespace CSC470_P4
 
         }
 
+
+        public void Login()
+        {
+            string _password = txtPassword.Text;
+            string _username = txtUsername.Text;
+
+            FakeAppUserRepository FAuserRepo = new FakeAppUserRepository();
+            AppUser appuser;
+
+            if (FAuserRepo.Login(_username, _password))
+            {
+                FAuserRepo.SetAuthentication(_username, true);
+                appuser = FAuserRepo.GetByUserName(_username);
+                FormMain.appuser
+                
+            }
+            else
+            {
+                MessageBox.Show("Incorrect UserName or Password.", "Attention");
+                DialogResult = DialogResult.No;
+            }
+
+        }
+
     }
 }
