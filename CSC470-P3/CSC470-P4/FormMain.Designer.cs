@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
             this.selectProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +48,9 @@
             this.countByDateRangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listByDateRangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trendByDateRangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,38 +82,12 @@
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(81, 22);
             this.toolStripDropDownButton1.Text = "Preferences";
             // 
-            // toolStripDropDownButton2
-            // 
-            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(88, 22);
-            this.toolStripDropDownButton2.Text = "Requirement";
-            // 
-            // toolStripDropDownButton3
-            // 
-            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
-            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
-            this.toolStripDropDownButton3.Size = new System.Drawing.Size(56, 22);
-            this.toolStripDropDownButton3.Text = "Design";
-            // 
-            // toolStripDropDownButton4
-            // 
-            this.toolStripDropDownButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton4.Image")));
-            this.toolStripDropDownButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton4.Name = "toolStripDropDownButton4";
-            this.toolStripDropDownButton4.Size = new System.Drawing.Size(40, 22);
-            this.toolStripDropDownButton4.Text = "Test";
-            // 
             // selectProjectToolStripMenuItem
             // 
             this.selectProjectToolStripMenuItem.Name = "selectProjectToolStripMenuItem";
             this.selectProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.selectProjectToolStripMenuItem.Text = "Select Project";
+            this.selectProjectToolStripMenuItem.Click += new System.EventHandler(this.selectProjectToolStripMenuItem_Click);
             // 
             // createProjectToolStripMenuItem
             // 
@@ -151,25 +125,25 @@
             // dashboardToolStripMenuItem
             // 
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.dashboardToolStripMenuItem.Text = "Dashboard";
             // 
             // recordToolStripMenuItem
             // 
             this.recordToolStripMenuItem.Name = "recordToolStripMenuItem";
-            this.recordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recordToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.recordToolStripMenuItem.Text = "Record";
             // 
             // modifyToolStripMenuItem
             // 
             this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.modifyToolStripMenuItem.Text = "Modify";
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             // 
             // reportToolStripMenuItem
@@ -183,7 +157,7 @@
             this.listByDateRangeToolStripMenuItem,
             this.trendByDateRangeToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.reportToolStripMenuItem.Text = "Report";
             // 
             // countByAssigneeToolStripMenuItem
@@ -227,6 +201,33 @@
             this.trendByDateRangeToolStripMenuItem.Name = "trendByDateRangeToolStripMenuItem";
             this.trendByDateRangeToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.trendByDateRangeToolStripMenuItem.Text = "Trend by Date Range";
+            // 
+            // toolStripDropDownButton2
+            // 
+            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
+            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(88, 22);
+            this.toolStripDropDownButton2.Text = "Requirement";
+            // 
+            // toolStripDropDownButton3
+            // 
+            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
+            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
+            this.toolStripDropDownButton3.Size = new System.Drawing.Size(56, 22);
+            this.toolStripDropDownButton3.Text = "Design";
+            // 
+            // toolStripDropDownButton4
+            // 
+            this.toolStripDropDownButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton4.Image")));
+            this.toolStripDropDownButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton4.Name = "toolStripDropDownButton4";
+            this.toolStripDropDownButton4.Size = new System.Drawing.Size(40, 22);
+            this.toolStripDropDownButton4.Text = "Test";
             // 
             // FormMain
             // 

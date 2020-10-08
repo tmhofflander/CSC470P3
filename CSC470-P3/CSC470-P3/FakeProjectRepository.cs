@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 
 namespace CSC470_P3
 {
-    class FakeProjectRepository : IProjectRepository
+    public class FakeProjectRepository : IProjectRepository
     {
         const string NO_ERROR = "";
         const string MODIFIED_PROJECT_ID_ERROR =  "Can not modify the project id.";
@@ -33,21 +34,21 @@ namespace CSC470_P3
                 });
                 projects.Add(new Project
                 {
-                    Name = "Kermit the Frogs Big Adventure"
+                    Name = "Kermit the Frog's Big Adventure"
                 });
             }
         }
 
-        int GetNextID()
+        public int GetNextID()
         {
             int max = -1;
 
-            List<Project> project = GetAll();
+            List<Project> project = projects;
 
             if (project.Count == 0)
                 return 1;
 
-            foreach(Project newProject in GetAll())
+            foreach(Project newProject in projects)
             {
                 if (newProject.Id > max)
                     max = newProject.Id;
@@ -74,23 +75,25 @@ namespace CSC470_P3
 
         public string Remove(int projectId)
         {
-
+            return "";
         }
 
         public string Modify(int projectId)
         {
-
+            return "";
         }
 
         public List<Project> GetAll()
         {
-            return projects;
+            List<Project> templist = new List<Project>();
+            templist = projects;
+            return templist;
         }
 
         public bool IsDuplicateName(string projectName)
         {
             bool isDuplicate = false;
-            foreach(Project project in GetAll())
+            foreach(Project project in projects)
             {
                 if (projectName == project.Name)
                     isDuplicate = true;

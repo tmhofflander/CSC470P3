@@ -17,6 +17,7 @@ namespace CSC470_P4
         public FormSelectProject()
         {
             InitializeComponent();
+            ListBoxProjects.DataSource = fpr;
         }
 
         private void btnSelectProject_Click(object sender, EventArgs e)

@@ -44,5 +44,11 @@ namespace CSC470_P4
                 this.Text = "Main - No Project Selected";
             }
         }
+
+        private void selectProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSelectProject select = new FormSelectProject();
+            select.Show();
+        }
     }
 }

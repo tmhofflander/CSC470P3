@@ -4,14 +4,14 @@ using System.Text;
 
 namespace CSC470_P3
 {
-    class FakePreferenceRespository
+    public class FakePreferenceRespository
     {
         public const string PREFERENCE_PROJECT_ID = "Project_Id";
         public const string PREFERENCE_PROJECT_NAME = "Project_Name";
         public const string NO_ERROR = "";
 
 
-        private static Dictionary<string, Dictionary<string, string>> preferences = new Dictionary<string, Dictionary<string, string>>;
+        private static Dictionary<string, Dictionary<string, string>> preferences = new Dictionary<string, Dictionary<string, string>>();
 
 
         public string GetPreference(string UserName, string PreferenceName)
