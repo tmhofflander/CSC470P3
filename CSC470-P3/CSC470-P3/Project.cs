@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSC470_P3
 {
-    class Project
+    public class Project
     {
         public int Id;
         public string Name;

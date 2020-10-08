@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSC470_P3
 {
-    class Preference
+    public class Preference
     {
         public string UserName;
         public string Name;

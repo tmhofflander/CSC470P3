@@ -17,7 +17,11 @@ namespace CSC470_P4
         public FormSelectProject()
         {
             InitializeComponent();
-            ListBoxProjects.DataSource = fpr;
+            List<Project> projects = fpr.GetAll();
+            foreach(Project project in projects)
+            {
+                ListBoxProjects.Items.Add(project.Id+" - "+project.Name);
+            }
         }
 
         private void btnSelectProject_Click(object sender, EventArgs e)

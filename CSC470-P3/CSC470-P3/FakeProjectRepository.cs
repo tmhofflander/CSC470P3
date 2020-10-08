@@ -20,7 +20,7 @@ namespace CSC470_P3
 
         public FakeProjectRepository()
         {
-            if(projects.Count == 0)
+            if(projects == null)
             {
                 projects = new List<Project>();
 
@@ -43,9 +43,7 @@ namespace CSC470_P3
         {
             int max = -1;
 
-            List<Project> project = projects;
-
-            if (project.Count == 0)
+            if (projects == null)
                 return 1;
 
             foreach(Project newProject in projects)
