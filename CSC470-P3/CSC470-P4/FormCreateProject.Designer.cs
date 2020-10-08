@@ -81,6 +81,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "FormCreateProject";
             this.Text = "Create Project";
+            this.Load += new System.EventHandler(this.FormCreateProject_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -26,15 +26,18 @@ namespace CSC470_P3
 
                 projects.Add(new Project
                 {
-                    Name = "Big Project"
+                    Name = "Big Project",
+                    Id = 1
                 });
                 projects.Add(new Project
                 {
-                    Name = "Small Project"
+                    Name = "Small Project",
+                    Id = 2
                 });
                 projects.Add(new Project
                 {
-                    Name = "Kermit the Frog's Big Adventure"
+                    Name = "Kermit the Frog's Big Adventure",
+                    Id = 3
                 });
             }
         }

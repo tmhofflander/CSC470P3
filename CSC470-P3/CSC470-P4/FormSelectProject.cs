@@ -13,7 +13,7 @@ namespace CSC470_P4
 {
     public partial class FormSelectProject : Form
     {
-        FakeProjectRepository fpr = new FakeProjectRepository();
+        public FakeProjectRepository fpr = new FakeProjectRepository();
         public FormSelectProject()
         {
             InitializeComponent();

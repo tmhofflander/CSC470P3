@@ -50,5 +50,11 @@ namespace CSC470_P4
             FormSelectProject select = new FormSelectProject();
             select.Show();
         }
+
+        private void createProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCreateProject create = new FormCreateProject();
+            create.Show();
+        }
     }
 }
