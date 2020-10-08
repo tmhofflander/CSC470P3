@@ -17,7 +17,26 @@ namespace CSC470_P3
 
         private static List<Project> projects;
 
+        public FakeProjectRepository()
+        {
+            if(projects.Count == 0)
+            {
+                projects = new List<Project>();
 
+                projects.Add(new Project
+                {
+                    Name = "Big Project"
+                });
+                projects.Add(new Project
+                {
+                    Name = "Small Project"
+                });
+                projects.Add(new Project
+                {
+                    Name = "Kermit the Frogs Big Adventure"
+                });
+            }
+        }
 
         int GetNextID()
         {

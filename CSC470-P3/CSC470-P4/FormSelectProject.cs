@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CSC470_P3;
 
 namespace CSC470_P4
 {
     public partial class FormSelectProject : Form
     {
+        FakeProjectRepository fpr = new FakeProjectRepository();
         public FormSelectProject()
         {
             InitializeComponent();
