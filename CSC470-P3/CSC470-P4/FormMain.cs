@@ -13,21 +13,29 @@ namespace CSC470_P4
 {
     public partial class FormMain : Form
     {
+        AppUser appUser = new AppUser();
+
         public FormMain()
         {
             InitializeComponent();
-            AppUser appUser = new AppUser();
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+
             CenterToScreen();
             DialogResult result = DialogResult.OK;
             if (!appUser.IsAuthenticated && result == DialogResult.OK)
             {
                 FormLogin formLogin = new FormLogin();
+
                 result = formLogin.ShowDialog();
+                appUser = formLogin.appUser;
+                Console.WriteLine(appUser.IsAuthenticated.ToString());
             }
 
-
-
-            if (result != DialogResult.OK)
+            if(result != DialogResult.OK)
             {
                 Close();
             }
@@ -35,11 +43,6 @@ namespace CSC470_P4
             {
                 this.Text = "Main - No Project Selected";
             }
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
