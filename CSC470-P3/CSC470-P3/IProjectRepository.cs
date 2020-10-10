@@ -8,7 +8,7 @@ namespace CSC470_P3
     {
         string Add(Project project, out int id);
         string Remove(int projectId);
-        string Modify(int projectId);
+        string Modify(int projectId, Project project);
         List<Project> GetAll();
         bool IsDuplicateName(string projectName);
     }

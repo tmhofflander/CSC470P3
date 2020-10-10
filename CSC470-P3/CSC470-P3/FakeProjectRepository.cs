@@ -8,11 +8,11 @@ namespace CSC470_P3
 {
     public class FakeProjectRepository : IProjectRepository
     {
-        const string NO_ERROR = "";
-        const string MODIFIED_PROJECT_ID_ERROR =  "Can not modify the project id.";
-        const string DUPLICATE_PROJECT_NAME_ERROR = "Project name already exists.";
-        const string NO_PROJECT_FOUND_ERROR = "No project found";
-        const string EMPTY_PROJECT_NAME_ERROR = "Project name is empty or blank";
+        public const string NO_ERROR = "";
+        public const string MODIFIED_PROJECT_ID_ERROR =  "Can not modify the project id.";
+        public const string DUPLICATE_PROJECT_NAME_ERROR = "Project name already exists.";
+        public const string NO_PROJECT_FOUND_ERROR = "No project found";
+        public const string EMPTY_PROJECT_NAME_ERROR = "Project name is empty or blank";
 
 
 
@@ -79,9 +79,36 @@ namespace CSC470_P3
             return "";
         }
 
-        public string Modify(int projectId)
+        public string Modify(int projectId, Project project)
         {
-            return "";
+            FakePreferenceRespository fprefr = new FakePreferenceRespository();
+            if (Session.project.Name != null)
+            {
+                if (Int32.Parse(fprefr.GetPreference(Session.appUser.UserName, Session.project.Name)) == projectId)
+                {
+                    return "Cannot modify your current session project.";
+                }
+            }
+            if (project.Id != projectId)
+            {
+                return MODIFIED_PROJECT_ID_ERROR;
+            }
+            if (project.Name == "")
+            {
+                return EMPTY_PROJECT_NAME_ERROR;
+            }
+            if (IsDuplicateName(project.Name))
+            {
+                return DUPLICATE_PROJECT_NAME_ERROR;
+            }
+            foreach(Project temp in projects)
+            {
+                if (temp.Id == project.Id)
+                {
+                    temp.Name = project.Name;
+                }
+            }
+            return NO_ERROR;
         }
 
         public List<Project> GetAll()
@@ -102,12 +129,6 @@ namespace CSC470_P3
 
             return isDuplicate;
         }
-
-
-
-
-
-
 
     }
 }

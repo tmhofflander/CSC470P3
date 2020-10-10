@@ -20,12 +20,13 @@ namespace CSC470_P4
 
         private void btnRemoveProject_Click(object sender, EventArgs e)
         {
-
+            //Remove project
+            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
     }

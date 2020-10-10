@@ -25,16 +25,13 @@ namespace CSC470_P4
             FakeProjectRepository fpr = new FakeProjectRepository();
             Project project = new Project { Name = textBox1.Text };
             fpr.Add(project, out project.Id);
+            MessageBox.Show("Project added successfully!");
+            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void FormCreateProject_Load(object sender, EventArgs e)
-        {
-
+            Close();
         }
     }
 }

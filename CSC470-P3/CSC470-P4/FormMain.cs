@@ -13,7 +13,7 @@ namespace CSC470_P4
 {
     public partial class FormMain : Form
     {
-        AppUser appUser = new AppUser();
+        public AppUser appUser = Session.appUser;
 
         public FormMain()
         {
@@ -23,16 +23,16 @@ namespace CSC470_P4
         private void FormMain_Load(object sender, EventArgs e)
         {
 
-
             CenterToScreen();
             DialogResult result = DialogResult.OK;
             if (!appUser.IsAuthenticated && result == DialogResult.OK)
             {
                 FormLogin formLogin = new FormLogin();
-
+               
                 result = formLogin.ShowDialog();
                 appUser = formLogin.appUser;
-                Console.WriteLine(appUser.IsAuthenticated.ToString());
+                Session.appUser = appUser;
+                //Console.WriteLine(appUser.IsAuthenticated.ToString());
             }
 
             if(result != DialogResult.OK)
@@ -45,9 +45,14 @@ namespace CSC470_P4
             }
         }
 
+        public void ChangeMainText(String text)
+        {
+            this.Text ="Main - " + text;
+        }
+
         private void selectProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormSelectProject select = new FormSelectProject();
+            FormSelectProject select = new FormSelectProject(this,1);
             select.Show();
         }
 
@@ -55,6 +60,12 @@ namespace CSC470_P4
         {
             FormCreateProject create = new FormCreateProject();
             create.Show();
+        }
+
+        private void modifyProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSelectProject select = new FormSelectProject(this, 2);
+            select.Show();
         }
     }
 }
