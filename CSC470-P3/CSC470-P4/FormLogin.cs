@@ -20,6 +20,7 @@ namespace CSC470_P4
         public FormLogin()
         {
             InitializeComponent();
+            CenterToScreen();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

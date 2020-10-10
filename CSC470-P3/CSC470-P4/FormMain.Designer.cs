@@ -108,6 +108,7 @@
             this.removeProjectToolStripMenuItem.Name = "removeProjectToolStripMenuItem";
             this.removeProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeProjectToolStripMenuItem.Text = "Remove Project";
+            this.removeProjectToolStripMenuItem.Click += new System.EventHandler(this.removeProjectToolStripMenuItem_Click);
             // 
             // toolStripButton1
             // 

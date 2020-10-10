@@ -23,9 +23,12 @@ namespace CSC470_P4
         private void btnAdd_Click(object sender, EventArgs e)
         {
             FakeProjectRepository fpr = new FakeProjectRepository();
-            Project project = new Project { Name = textBox1.Text };
-            fpr.Add(project, out project.Id);
-            MessageBox.Show("Project added successfully!");
+            Project project = new Project { Name = textBox1.Text.Trim() };
+            string result = fpr.Add(project, out project.Id);
+            if (result != "")
+                MessageBox.Show(result);
+            else
+                MessageBox.Show("Project added successfully!");
             Close();
         }
 

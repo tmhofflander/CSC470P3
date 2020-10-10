@@ -76,7 +76,36 @@ namespace CSC470_P3
 
         public string Remove(int projectId)
         {
-            return "";
+            FakePreferenceRespository fprefr = new FakePreferenceRespository();
+
+            if (Session.project.Name != null)
+            {
+                string id = fprefr.GetPreference(Session.appUser.UserName, Session.project.Name);
+
+                if (Int32.Parse(id) == projectId)
+                {
+                    return "Cannot remove your current session project.";
+                }
+            }
+
+            bool isFound = false;
+            Project tempProj = null;
+            foreach(Project project in projects)
+            {
+                if (projectId == project.Id)
+                {
+                    isFound = true;
+                    tempProj = project;
+                }
+                    
+            }
+
+            if (!isFound)
+                return NO_PROJECT_FOUND_ERROR;
+
+            projects.Remove(tempProj);
+
+            return NO_ERROR;                     
         }
 
         public string Modify(int projectId, Project project)
@@ -84,7 +113,8 @@ namespace CSC470_P3
             FakePreferenceRespository fprefr = new FakePreferenceRespository();
             if (Session.project.Name != null)
             {
-                if (Int32.Parse(fprefr.GetPreference(Session.appUser.UserName, Session.project.Name)) == projectId)
+                string id = fprefr.GetPreference(Session.appUser.UserName, Session.project.Name);
+                if (Int32.Parse(id) == projectId)
                 {
                     return "Cannot modify your current session project.";
                 }

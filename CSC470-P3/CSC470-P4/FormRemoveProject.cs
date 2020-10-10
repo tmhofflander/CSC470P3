@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSC470_P3;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,15 +13,23 @@ namespace CSC470_P4
 {
     public partial class FormRemoveProject : Form
     {
-        public FormRemoveProject()
+        Project toRemove;
+        FakeProjectRepository fpr = new FakeProjectRepository();
+        public FormRemoveProject(Project _toRemove)
         {
             InitializeComponent();
             CenterToScreen();
+            toRemove = _toRemove;
+            LabelProject.Text = toRemove.Name;
         }
 
         private void btnRemoveProject_Click(object sender, EventArgs e)
         {
-            //Remove project
+            string result = "";
+            if (MessageBox.Show("Are you sure you want to remove project: \n" + toRemove.Name + "?", "Attention", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                result = fpr.Remove(toRemove.Id);
+            if (result != "")
+                MessageBox.Show(result);
             Close();
         }
 

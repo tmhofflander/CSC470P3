@@ -18,9 +18,10 @@ namespace CSC470_P4
         FormMain form;
         int action;
 
-        public FormSelectProject(FormMain fm,int _action)
+        public FormSelectProject(FormMain fm, int _action)
         {
             InitializeComponent();
+            CenterToScreen();
             form = fm;
             action = _action;
             List<Project> projects = fpr.GetAll();
@@ -28,6 +29,8 @@ namespace CSC470_P4
             {
                 ListBoxProjects.Items.Add(project.Id+" - "+project.Name);
             }
+            btnSelectProject.DialogResult = DialogResult.OK;
+            Cancel.DialogResult = DialogResult.Cancel;
         }
 
         private void btnSelectProject_Click(object sender, EventArgs e)
@@ -35,16 +38,17 @@ namespace CSC470_P4
             List<Project> projects = fpr.GetAll();
             string id = ListBoxProjects.Items[ListBoxProjects.SelectedIndex].ToString().Substring(0,1);
 
-
             if (action == 1)
             {
-
-                fprefr.SetPreference(Session.appUser.UserName, projects[ListBoxProjects.SelectedIndex].Name, id);
-                form.ChangeMainText(projects[ListBoxProjects.SelectedIndex].Name);
-                foreach (Project project in projects)
+                if(Int32.Parse(id) != Session.project.Id)
                 {
-                    if (project.Id == Int32.Parse(id))
-                        Session.project = project; 
+                    fprefr.SetPreference(Session.appUser.UserName, projects[ListBoxProjects.SelectedIndex].Name, id);
+                    form.ChangeMainText(projects[ListBoxProjects.SelectedIndex].Name);
+                    foreach (Project project in projects)
+                    {
+                        if (project.Id == Int32.Parse(id))
+                            Session.project = project;
+                    }
                 }
             }
             if (action == 2)
@@ -59,7 +63,19 @@ namespace CSC470_P4
                     }
                 FormModifyProject modify = new FormModifyProject(projTemp);
                 modify.Show();
-                
+            }
+            if(action == 3)
+            {
+                Project projTemp = null;
+                foreach (Project project in projects)
+                {
+                    if (project.Id == Int32.Parse(id))
+                    {
+                        projTemp = project;
+                    }
+                }
+                FormRemoveProject remove = new FormRemoveProject(projTemp);
+                remove.Show();
             }
             Close();
         }

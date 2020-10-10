@@ -32,7 +32,6 @@ namespace CSC470_P4
                 result = formLogin.ShowDialog();
                 appUser = formLogin.appUser;
                 Session.appUser = appUser;
-                //Console.WriteLine(appUser.IsAuthenticated.ToString());
             }
 
             if(result != DialogResult.OK)
@@ -41,7 +40,9 @@ namespace CSC470_P4
             }
             else
             {
-                this.Text = "Main - No Project Selected";
+                FormSelectProject select = new FormSelectProject(this, 1);
+                if (select.ShowDialog() == DialogResult.Cancel)
+                    Close();
             }
         }
 
@@ -66,6 +67,12 @@ namespace CSC470_P4
         {
             FormSelectProject select = new FormSelectProject(this, 2);
             select.Show();
+        }
+
+        private void removeProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSelectProject remove = new FormSelectProject(this, 3);
+            remove.Show();
         }
     }
 }

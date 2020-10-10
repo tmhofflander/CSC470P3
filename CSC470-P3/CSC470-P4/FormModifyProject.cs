@@ -29,8 +29,11 @@ namespace CSC470_P4
         {
             Project project = new Project();
             project.Id = toModify.Id;
-            project.Name = textBox1.Text;
-            fpr.Modify(project.Id, project);
+            project.Name = textBox1.Text.Trim();
+            string result = fpr.Modify(project.Id, project);
+
+            if (result != "")
+                MessageBox.Show(result);
             Close();
         }
 
